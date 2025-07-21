@@ -1,0 +1,9 @@
+bash
+Copy
+Edit
+__pycache__/
+*.h5
+*.pkl
+*.log
+.env
+.ipynb_checkpoints/

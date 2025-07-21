@@ -1,2 +1,2 @@
-# discord_generative_chatbot
+# discord-generative-chatbot
 Discord Chatbot that translates user text to language of choice.
