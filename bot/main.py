@@ -25,8 +25,8 @@ bot = commands.Bot(command_prefix ="!", intents=intents)
 # the first parameter inside of the Option is the type we're expecting, the second one is a small text the user will see in Discord when choosing their target language choice, and the third one will show a list of choices for the user to choose from
 # for the choices, if the user chooses one that's not defined in here, Discord won't let the user submit the reply. This is UI level, so if I tried running in the terminal, it'll probably run and throw me the exception error
 
-@bot.slash_command(name="translate", description="Translate a phrase to English or Spanish. ")
-async def translate(ctx, target_lang = Option(str, "Target language (english or spanish)", choices=["english", "spanish"]), text = Option(str, "The text to translate")) -> str:
+@bot.slash_command(name="translate", description="Translate a phrase to English, Spanish, or French.")
+async def translate(ctx, target_lang = Option(str, "Target language (english, spanish or french)", choices=["english", "spanish", "french"]), text = Option(str, "The text to translate")) -> str:
     try:
         result = translate_text(text, target_lang)
         await ctx.respond(f"{ctx.user.name} said: {result}") # this lets the bot reply back to the user in Discord
