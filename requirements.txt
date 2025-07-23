@@ -2,4 +2,4 @@ discord.py
 python-dotenv
 transformers[sentencepiece]
 langdetect
-torch
+torch==2.1.0+cpu --index-url https://download.pytorch.org/whl/cpu
