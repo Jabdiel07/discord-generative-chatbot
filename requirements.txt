@@ -1,7 +1,5 @@
---extra-index-url https://download.pytorch.org/whl/cpu
-
 discord.py
 python-dotenv
-transformers[sentencepiece]
+transformers
 langdetect
-torch==2.0.1
+torch
