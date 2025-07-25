@@ -12,35 +12,23 @@ def setup_logging(
 
     os.makedirs(log_dir, exist_ok=True) # checks if the logs directorate exists, if it doesn't, it creates it
 
-    logger = logging.getLogger("translator_bot") # we assign the name of the log translator_bot
-    logger.setLevel(level) # set the log level. In this example, it's being set to INFO, so it'll be able to log and print info logs and everything at a higher level
-
-    '''
-    Levels for logger from lowest to highest
-
-    logging.DEBUG
-    logging.INFO
-    logging.WARNING
-    logging.ERROR
-    logging.CRITICAL
-
-    '''
+    logger = logging.getLogger("translator_bot")
+    logger.setLevel(level)
 
     if logger.handlers: # this avoids adding another handler if imported more than once (otherwise you'll get repeated log lines)
         return logger
     
-    # this sets the format for the logger, this is how it'll look inside the log file whenever a log is recorded
     formatter = logging.Formatter("{asctime} | {name} | {levelname} | {message}", style = "{", datefmt = "%Y-%m-%d %H:%M:%S") # timestamp | logger name | severity | message
 
-    # here we create our console handler, which will show log results in the terminal
-    console_handler = logging.StreamHandler() # StreamHandler is what allows us to log results in the terminal
+    # create console handler, which will show log results in the terminal
+    console_handler = logging.StreamHandler()
     console_handler.setLevel(level)
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
 
-    # here we create our file handler, which will show log results in the log file
+    #create file handler, which will show log results in the log file
     file_path = os.path.join(log_dir, log_file)
-    file_handler = RotatingFileHandler( # RotatingFileHandler is what allows us to log results in the log file
+    file_handler = RotatingFileHandler(
         filename=file_path,
         maxBytes=max_bytes,
         backupCount=backup_count,
