@@ -26,7 +26,7 @@ def setup_logging(
     console_handler.setFormatter(formatter)
     logger.addHandler(console_handler)
 
-    #create file handler, which will show log results in the log file
+    # create file handler, which will show log results in the log file
     file_path = os.path.join(log_dir, log_file)
     file_handler = RotatingFileHandler(
         filename=file_path,
